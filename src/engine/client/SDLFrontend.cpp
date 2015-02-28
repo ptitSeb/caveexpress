@@ -519,20 +519,8 @@ int SDLFrontend::init (int width, int height, bool fullscreen, EventHandler &eve
 			displayMode.w, displayMode.h, displayMode.refresh_rate, name));
 	if (width == -1)
 		width = 800;//displayMode.w;
-<<<<<<< HEAD
 	if (height == -1)
 		height = 480; //displayMode.h;
-=======
-	if (height == -1)
-		height = 480; //displayMode.h;
-#else
-	if (width == -1)
-		width = 800;
-	if (height == -1)
-		height = 480;
-	SDL_SetVideoMode(width, height, 16, SDL_OPENGL);
-#endif
->>>>>>> a2e8f72aa323ec1cd3c5bd525456e0d2688b9589
 
 	setGLAttributes();
 	setHints();

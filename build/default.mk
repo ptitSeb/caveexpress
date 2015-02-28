@@ -201,17 +201,7 @@ SDL_IMAGE_SRCS            = \
 	libs/SDL_image/IMG_xpm.c \
 	libs/SDL_image/IMG_xv.c
 endif
-<<<<<<< HEAD
 ifeq ($(HAVE_OGG_OGG_H),1)
-=======
-ifeq ($(HAVE_SDL_MIXER_H),1)
-SDL_MIXER_LIBS           += $(call PKG_LIBS,SDL2_mixer)
-SDL_MIXER_CFLAGS         ?= $(call PKG_CFLAGS,SDL2_mixer)
-SDL_MIXER_SRCS            =
-VORBIS_CFLAGS            ?= $(call PKG_CFLAGS,vorbis) $(call PKG_CFLAGS,vorbisidec) -DOGG_USE_TREMOR
-VORBIS_LIBS              += $(call PKG_LIBS,vorbis) $(call PKG_LIBS,vorbisidec)
-OGG_CFLAGS               ?= $(call PKG_CFLAGS,ogg)
->>>>>>> a2e8f72aa323ec1cd3c5bd525456e0d2688b9589
 OGG_LIBS                 += $(call PKG_LIBS,ogg)
 OGG_SRCS                  =
 else
@@ -305,14 +295,9 @@ SDL_MIXER_SRCS            = \
 	libs/SDL_mixer/wavestream.c
 
 ifneq ($(findstring $(TARGET_OS), android ouya pandora),)
-<<<<<<< HEAD
 	SDL_MIXER_CFLAGS += $(TREMOR_CFLAGS) $(OGG_CFLAGS)
 	SDL_MIXER_SRCS   += $(TREMOR_SRCS) $(OGG_SRCS)
 	SDL_MIXER_SRCS   += $(TREMOR_LIBS) $(OGG_LIBS)
-=======
-	SDL_MIXER_CFLAGS += $(TREMOR_CFLAGS)
-	SDL_MIXER_SRCS   += $(TREMOR_SRCS)
->>>>>>> a2e8f72aa323ec1cd3c5bd525456e0d2688b9589
 else
 	SDL_MIXER_CFLAGS += $(VORBIS_CFLAGS) $(OGG_CFLAGS)
 	SDL_MIXER_SRCS   += $(VORBIS_SRCS) $(OGG_SRCS)

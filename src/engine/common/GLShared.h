@@ -18,10 +18,7 @@
 
 #if SDL_VIDEO_OPENGL_ES2 && !SDL_VIDEO_OPENGL
 #include <SDL_opengles2.h>
-<<<<<<< HEAD
 #include <SDL_opengles2_gl2ext.h>
-=======
->>>>>>> a2e8f72aa323ec1cd3c5bd525456e0d2688b9589
 #ifndef GLchar
 #define GLchar char
 #endif
