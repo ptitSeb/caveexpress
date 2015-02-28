@@ -518,9 +518,9 @@ int SDLFrontend::init (int width, int height, bool fullscreen, EventHandler &eve
 	info(LOG_CLIENT, String::format("current desktop mode: %dx%d@%dHz (%s)",
 			displayMode.w, displayMode.h, displayMode.refresh_rate, name));
 	if (width == -1)
-		width = displayMode.w;
+		width = 800;//displayMode.w;
 	if (height == -1)
-		height = displayMode.h;
+		height = 480; //displayMode.h;
 
 	setGLAttributes();
 	setHints();
@@ -536,7 +536,7 @@ int SDLFrontend::init (int width, int height, bool fullscreen, EventHandler &eve
 #endif
 
 
-#if defined __IPHONEOS__ || defined __ANDROID__
+#if 1 //defined __IPHONEOS__ || defined __ANDROID__
 	if (fullscreen)
 		flags |= SDL_WINDOW_FULLSCREEN | SDL_WINDOW_BORDERLESS;
 #else
