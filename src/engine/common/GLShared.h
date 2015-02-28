@@ -11,6 +11,9 @@
 #include <SDL_opengl.h>
 #elif SDL_VIDEO_OPENGL_ES
 #include <SDL_opengles2.h>
+#ifndef GLchar
+#define GLchar char
+#endif
 #endif
 
 #ifndef SDL_VIDEO_OPENGL
