@@ -1,6 +1,6 @@
 SO_EXT                    = so
 SO_LDFLAGS                = -shared
-SO_CFLAGS                 = -fpic
+SO_CFLAGS                 = -fPIC
 SO_LIBS                  := -ldl
 
 CFLAGS                   += -D_GNU_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE
