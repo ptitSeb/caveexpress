@@ -170,8 +170,8 @@ ifeq ($(HAVE_SDL_MIXER_H),1)
 SDL_MIXER_LIBS           += $(call PKG_LIBS,SDL2_mixer)
 SDL_MIXER_CFLAGS         ?= $(call PKG_CFLAGS,SDL2_mixer)
 SDL_MIXER_SRCS            =
-VORBIS_CFLAGS            ?= $(call PKG_CFLAGS,vorbis) $(call PKG_CFLAGS,vorbisfile)
-VORBIS_LIBS              += $(call PKG_LIBS,vorbis) $(call PKG_LIBS,vorbisfile)
+VORBIS_CFLAGS            ?= $(call PKG_CFLAGS,vorbis) $(call PKG_CFLAGS,vorbisidec) -DOGG_USE_TREMOR
+VORBIS_LIBS              += $(call PKG_LIBS,vorbis) $(call PKG_LIBS,vorbisidec)
 OGG_CFLAGS               ?= $(call PKG_CFLAGS,ogg)
 OGG_LIBS                 += $(call PKG_LIBS,ogg)
 else
@@ -242,7 +242,7 @@ SDL_MIXER_SRCS            = \
 	libs/SDL_mixer/music_ogg.c \
 	libs/SDL_mixer/wavestream.c
 
-ifneq ($(findstring $(TARGET_OS), android ouya),)
+ifneq ($(findstring $(TARGET_OS), android ouya pandora),)
 	SDL_MIXER_CFLAGS += $(TREMOR_CFLAGS)
 	SDL_MIXER_SRCS   += $(TREMOR_SRCS)
 else
