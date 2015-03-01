@@ -2,10 +2,10 @@
 
 #include <Box2D/Common/b2Math.h>
 #include <algorithm>
-#include <cmath>
+//#include <cmath>
 #include <stdint.h>
 #include <iostream>
-#include <math.h>
+//#include <math.h>
 #include "engine/common/Compiler.h"
 #define GLM_FORCE_RADIANS
 GCC_DIAG_OFF(shadow)
