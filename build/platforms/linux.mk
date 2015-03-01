@@ -1,9 +1,9 @@
 SO_EXT                    = so
 SO_LDFLAGS                = -shared
 SO_CFLAGS                 = -fPIC
-SO_LIBS                  := -ldl
+SO_LIBS                  := -ldl -liconv
 
-CFLAGS                   += -D_GNU_SOURCE -D_BSD_SOURCE -D_DEFAULT_SOURCE -D_XOPEN_SOURCE
+CFLAGS                   += -D_GNU_SOURCE -D_BSD_SOURCE -D_DEFAULT_SOURCE -D_XOPEN_SOURCE -fsigned-char
 
 LDFLAGS                  +=
 tests_LDFLAGS            += -lrt -lpthread
