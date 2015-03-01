@@ -16,7 +16,7 @@ ifneq ($(findstring $(HOST_OS),sunos darwin),)
 endif
 
 MODE        ?= debug
-PREFIX      ?= /usr/local
+PREFIX      ?= /mnt/utmp/caveexpress
 WINDRES     ?= windres
 CC          ?= gcc
 CXX         ?= g++
