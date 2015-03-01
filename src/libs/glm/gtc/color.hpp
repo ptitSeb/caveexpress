@@ -24,67 +24,58 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// @ref gtx_spline
-/// @file glm/gtx/spline.hpp
-/// @date 2007-01-25 / 2011-06-07
+/// @ref gtc_color
+/// @file glm/gtc/color.hpp
+/// @date 2015-02-10 / 2015-02-10
 /// @author Christophe Riccio
 ///
 /// @see core (dependence)
+/// @see gtc_color (dependence)
 ///
-/// @defgroup gtx_spline GLM_GTX_spline
-/// @ingroup gtx
+/// @defgroup gtc_color GLM_GTC_color
+/// @ingroup gtc
 /// 
-/// @brief Spline functions
+/// @brief Allow to perform bit operations on integer values
 /// 
-/// <glm/gtx/spline.hpp> need to be included to use these functionalities.
+/// <glm/gtc/color.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
 #pragma once
 
-// Dependency:
-#include "../glm.hpp"
-#include "../gtx/optimum_pow.hpp"
+// Dependencies
+#include "../detail/setup.hpp"
+#include "../detail/precision.hpp"
+#include "../exponential.hpp"
+#include "../vec3.hpp"
+#include "../vec4.hpp"
+#include <limits>
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
-#	pragma message("GLM: GLM_GTX_spline extension included")
+#	pragma message("GLM: GLM_GTC_color extension included")
 #endif
 
 namespace glm
 {
-	/// @addtogroup gtx_spline
+	/// @addtogroup gtc_color
 	/// @{
 
-	/// Return a point from a catmull rom curve.
-	/// @see gtx_spline extension.
-	template <typename genType> 
-	GLM_FUNC_DECL genType catmullRom(
-		genType const & v1, 
-		genType const & v2, 
-		genType const & v3, 
-		genType const & v4, 
-		typename genType::value_type const & s);
-		
-	/// Return a point from a hermite curve.
-	/// @see gtx_spline extension.
-	template <typename genType> 
-	GLM_FUNC_DECL genType hermite(
-		genType const & v1, 
-		genType const & t1, 
-		genType const & v2, 
-		genType const & t2, 
-		typename genType::value_type const & s);
-		
-	/// Return a point from a cubic curve. 
-	/// @see gtx_spline extension.
-	template <typename genType> 
-	GLM_FUNC_DECL genType cubic(
-		genType const & v1, 
-		genType const & v2, 
-		genType const & v3, 
-		genType const & v4, 
-		typename genType::value_type const & s);
+	/// Convert a RGB color to sRGB color using a standard gamma correction
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<T, P> convertRgbToSrgb(vecType<T, P> const & ColorRGB);
+
+	/// Convert a RGB color to sRGB color using a custom gamma correction	
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<T, P> convertRgbToSrgb(vecType<T, P> const & ColorRGB, T Gamma);
+
+	/// Convert a sRGB color to RGB color using a standard gamma correction
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<T, P> convertSrgbToRgb(vecType<T, P> const & ColorSRGB);
+
+	/// Convert a sRGB color to RGB color using a custom gamma correction
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<T, P> convertSrgbToRgb(vecType<T, P> const & ColorSRGB, T Gamma);
 
 	/// @}
-}//namespace glm
+} //namespace glm
 
-#include "spline.inl"
+#include "color.inl"
