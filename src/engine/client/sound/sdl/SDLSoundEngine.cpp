@@ -69,6 +69,8 @@ bool SDLSoundEngine::init (bool initCache)
 
 	info(LOG_CLIENT, String::format("actual audio driver: %s", SDL_GetCurrentAudioDriver()));
 
+	Mix_Init(MIX_INIT_OGG);
+
 	const int audioRate = 44100;
 	const Uint16 audioFormat = MIX_DEFAULT_FORMAT;
 	const int audioChannels = MIX_DEFAULT_CHANNELS;
@@ -146,7 +148,7 @@ int SDLSoundEngine::playMusic (const std::string& music, bool loop)
 		error(LOG_CLIENT, "unable to load music file: " + music);
 		return -1;
 	}
-#if SDL_MIXER_MAJOR_VERSION >= 3
+#if SDL_MIXER_MAJOR_VERSION >= 2
 	_music = Mix_LoadMUS_RW(rwops, 1);
 #else
 	_music = Mix_LoadMUS_RW(rwops);
