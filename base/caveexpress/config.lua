@@ -177,6 +177,8 @@ else
 			S = "ui_focus_next",
 			SPACE = "ui_execute",
 			RETURN = "ui_execute",
+			PAGEDOWN = "ui_execute",
+			END = "ui_execute",
 			ESCAPE = "ui_pop",
 			TAB = "ui_focus_next",
 		},
@@ -193,8 +195,11 @@ else
 			RETURN = "drop",
 			ESCAPE = "ui_pop",
 			TAB = "ui_focus_next",
-			PAGEDOWN = "zoom -0.1",
-			PAGEUP = "zoom 0.1",
+			PAGEDOWN = "+move_up",
+			END = "drop",
+			PAGEUP = "+move_down",
+			I = "zoom -0.1",
+			O = "zoom 0.1",
 		},
 	}
 
